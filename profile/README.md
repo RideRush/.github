@@ -47,22 +47,33 @@ Using Spring WebFlux Security at the Gateway layer, pre-flight `OPTIONS` request
 * [**`shared-security-library`**](https://github.com/RideRush/Security) – The custom reusable dependency providing uniform servlet and reactive security configurations.
 
 ---
-
 ## 🚀 Quick Start & Verification
 
-Every service contains a localized `application.yml` pointing seamlessly to our local infrastructure mesh.
-
 ### 1. Boot up the Ecosystem
-Clone the root repository and run the Docker infrastructure:
+
+Clone the root repository and start the containerized infrastructure stack:
+
 ```bash
 docker-compose up -d
+```
+
+Verify that all services are running:
+
+```bash
+docker ps
+```
+
+---
+
 ## 🔍 Interactive API Testing via Swagger UI
 
-Once all service containers are running and connected through the API Gateway, you can verify routing and test secured APIs directly from Swagger.
+Once all service containers are initialized and connected through the API Gateway, verify routing and test secured APIs directly from Swagger.
 
 ### 1. Open Swagger UI
 
-```text
+Open your browser and navigate to:
+
+```
 http://localhost:8080/swagger-ui
 ```
 
@@ -70,7 +81,7 @@ http://localhost:8080/swagger-ui
 
 ### 2. Select a Microservice
 
-From the service dropdown in the top-right corner, choose:
+From the service definition dropdown in the top-right corner, switch the active context to:
 
 ```text
 User Service
@@ -86,7 +97,7 @@ Expand the authentication endpoints and execute:
 POST /api/v1/auth/login
 ```
 
-Click **Try it out** and enter credentials.
+Click **Try it out** and provide credentials.
 
 Example:
 
@@ -103,7 +114,7 @@ Click **Execute**.
 
 ### 4. Copy Access Token
 
-After successful authentication:
+After receiving:
 
 ```http
 200 OK
@@ -117,9 +128,9 @@ accessToken
 
 ---
 
-### 5. Authorize Swagger
+### 5. Authorize Requests
 
-Click **Authorize** at the top.
+Click **Authorize** at the top of Swagger UI.
 
 Paste:
 
@@ -133,7 +144,7 @@ Click **Authorize** → **Close**
 
 ### 6. Test Protected APIs
 
-You can now execute authenticated requests directly through the Gateway.
+You can now execute authenticated requests through the Gateway.
 
 Examples:
 
@@ -150,8 +161,8 @@ POST /api/v1/bookings
 ### ✅ Result
 
 * Centralized API testing
-* JWT-authenticated requests
+* JWT-secured requests
 * Gateway-based routing
-* No CORS conflicts
+* No CORS issues
 * Unified developer experience
 
