@@ -56,3 +56,102 @@ Every service contains a localized `application.yml` pointing seamlessly to our 
 Clone the root repository and run the Docker infrastructure:
 ```bash
 docker-compose up -d
+## 🔍 Interactive API Testing via Swagger UI
+
+Once all service containers are running and connected through the API Gateway, you can verify routing and test secured APIs directly from Swagger.
+
+### 1. Open Swagger UI
+
+```text
+http://localhost:8080/swagger-ui
+```
+
+---
+
+### 2. Select a Microservice
+
+From the service dropdown in the top-right corner, choose:
+
+```text
+User Service
+```
+
+---
+
+### 3. Authenticate
+
+Expand the authentication endpoints and execute:
+
+```http
+POST /api/v1/auth/login
+```
+
+Click **Try it out** and enter credentials.
+
+Example:
+
+```json
+{
+  "email": "demo@riderush.com",
+  "password": "password"
+}
+```
+
+Click **Execute**.
+
+---
+
+### 4. Copy Access Token
+
+After successful authentication:
+
+```http
+200 OK
+```
+
+Copy:
+
+```text
+accessToken
+```
+
+---
+
+### 5. Authorize Swagger
+
+Click **Authorize** at the top.
+
+Paste:
+
+```text
+Bearer <accessToken>
+```
+
+Click **Authorize** → **Close**
+
+---
+
+### 6. Test Protected APIs
+
+You can now execute authenticated requests directly through the Gateway.
+
+Examples:
+
+```http
+GET /api/v1/users/profile
+
+GET /api/v1/bikes
+
+POST /api/v1/bookings
+```
+
+---
+
+### ✅ Result
+
+* Centralized API testing
+* JWT-authenticated requests
+* Gateway-based routing
+* No CORS conflicts
+* Unified developer experience
+
