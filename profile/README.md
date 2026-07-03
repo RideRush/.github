@@ -1,4 +1,4 @@
-# 🏎️ RideRush: Smart Bike & Car Rental Microservices Platform
+# 🏎️ RideRush: Smart BikeRental Microservices Platform
 
 Welcome to **RideRush**, an enterprise-grade, highly scalable, and secure microservices platform designed for modern vehicle rental management. This organization hosts a decoupled ecosystem built using modern cloud-native patterns, robust security wrappers, and event-driven communication.
 
